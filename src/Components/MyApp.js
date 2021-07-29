@@ -1,15 +1,14 @@
 import React from "react";
-import Navbar from "./Navbar";
-import MainComponent from "./MainContent";
-import Footer from "./Footer";
+import TodoItem from "./TodoItem";
+import todosData from "../todosData.js";
 
 function MyApp() {
+  const todoComponent = todosData.map((item) => (
+    <TodoItem key={item.id} todosData={item} />
+  ));
   return (
-    <div>
-      {" "}
-      <Navbar />
-      <MainComponent />
-      <Footer />
+    <div className="AppStyle">
+      <div className="card">{todoComponent}</div>
     </div>
   );
 }
